@@ -1,6 +1,7 @@
-import { LogOut, Moon, Settings, User } from 'lucide-react';
+import { LogOut, Settings, SquareMenu, User } from 'lucide-react';
 import Link from 'next/link';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { ModeToggle as Darkmode } from './Darkmode';
 import {
     DropdownMenu,
     DropdownMenuContent,
@@ -9,6 +10,7 @@ import {
     DropdownMenuSeparator,
     DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
+import { Button } from '@/components/ui/button';
 
 const Navbar = () => {
     return (
@@ -18,7 +20,9 @@ const Navbar = () => {
             {/* RIGHT */}
             <div className="flex items-center gap-4">
                 <Link href="/">Dashboard</Link>
-                <Moon />
+                {/* THEME MENU */}
+                <Darkmode />
+                {/* USER MENU */}
 
                 <DropdownMenu>
                     <DropdownMenuTrigger>
@@ -43,6 +47,21 @@ const Navbar = () => {
                             Logout
                         </DropdownMenuItem>
                     </DropdownMenuContent>
+
+                    {/* 2 */}
+                    <DropdownMenu>
+                        <DropdownMenuTrigger asChild>
+                            <Button variant="outline" size="icon">
+                                <SquareMenu />
+                                <span className="sr-only">Dropdown</span>
+                            </Button>
+                        </DropdownMenuTrigger>
+                        <DropdownMenuContent>
+                            <DropdownMenuItem>Menu Item 1</DropdownMenuItem>
+                            <DropdownMenuItem>Menu Item 2</DropdownMenuItem>
+                            <DropdownMenuItem>Menu Item 3</DropdownMenuItem>
+                        </DropdownMenuContent>
+                    </DropdownMenu>
                 </DropdownMenu>
             </div>
         </nav>
