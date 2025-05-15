@@ -1,16 +1,34 @@
-import { Home, Inbox, Calendar, Search, Settings, ChevronUp } from 'lucide-react';
+import {
+    Home,
+    Inbox,
+    Calendar,
+    Search,
+    Settings,
+    Plus,
+    Projector,
+    ChevronDown,
+    CalendarCheck2,
+    MessageSquareWarning,
+    ChevronsUpDown,
+    PackagePlus,
+} from 'lucide-react';
 
 import {
     Sidebar,
     SidebarContent,
     SidebarFooter,
     SidebarGroup,
+    SidebarGroupAction,
     SidebarGroupContent,
     SidebarGroupLabel,
     SidebarHeader,
     SidebarMenu,
+    SidebarMenuBadge,
     SidebarMenuButton,
     SidebarMenuItem,
+    SidebarMenuSub,
+    SidebarMenuSubButton,
+    SidebarMenuSubItem,
     SidebarSeparator,
 } from '@/components/ui/sidebar';
 import Link from 'next/link';
@@ -21,6 +39,7 @@ import {
     DropdownMenuContent,
     DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
 const items = [
     {
         title: 'Home',
@@ -52,6 +71,7 @@ const items = [
 const AppSidebar = () => {
     return (
         <Sidebar collapsible="icon">
+            {/* logo */}
             <SidebarHeader>
                 <SidebarMenu>
                     <SidebarMenuItem>
@@ -79,17 +99,116 @@ const AppSidebar = () => {
                             {items.map((item) => (
                                 <SidebarMenuItem key={item.title}>
                                     <SidebarMenuButton asChild>
-                                        <a href={item.url}>
+                                        <Link href={item.url}>
                                             <item.icon />
                                             <span>{item.title}</span>
-                                        </a>
+                                        </Link>
                                     </SidebarMenuButton>
+                                    {item.title === 'Inbox' && <SidebarMenuBadge>22</SidebarMenuBadge>}
                                 </SidebarMenuItem>
                             ))}
                         </SidebarMenu>
                     </SidebarGroupContent>
                 </SidebarGroup>
+                {/* projects */}
+                <SidebarGroup>
+                    <SidebarGroupLabel>Projects</SidebarGroupLabel>
+                    <SidebarGroupAction title="Add Project">
+                        <Plus /> <span className="sr-only">Add Project</span>
+                    </SidebarGroupAction>
+                    <SidebarGroupContent>
+                        <SidebarMenu>
+                            <SidebarMenuItem>
+                                <SidebarMenuButton asChild>
+                                    <Link href="/#">
+                                        <PackagePlus />
+                                        Add new projects
+                                    </Link>
+                                </SidebarMenuButton>
+                            </SidebarMenuItem>
+                            <SidebarMenuItem>
+                                <SidebarMenuButton asChild>
+                                    <Link href="/#">
+                                        <Plus /> New Project
+                                    </Link>
+                                </SidebarMenuButton>
+                            </SidebarMenuItem>
+                        </SidebarMenu>
+                    </SidebarGroupContent>
+                </SidebarGroup>
+                {/* collapse */}
+                <Collapsible defaultOpen className="group/collapsible">
+                    <SidebarGroup>
+                        <SidebarGroupLabel asChild>
+                            <CollapsibleTrigger>
+                                Todos
+                                <ChevronDown className="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-180" />
+                            </CollapsibleTrigger>
+                        </SidebarGroupLabel>
+
+                        <CollapsibleContent>
+                            <SidebarGroupContent>
+                                <SidebarMenu>
+                                    <SidebarMenuItem>
+                                        <SidebarMenuButton asChild>
+                                            <Link href="/#">
+                                                <CalendarCheck2 />
+                                                Daily
+                                            </Link>
+                                        </SidebarMenuButton>
+                                    </SidebarMenuItem>
+                                    <SidebarMenuItem>
+                                        <SidebarMenuButton asChild>
+                                            <Link href="/#">
+                                                <MessageSquareWarning /> Feed back
+                                            </Link>
+                                        </SidebarMenuButton>
+                                    </SidebarMenuItem>
+                                </SidebarMenu>
+                            </SidebarGroupContent>
+                        </CollapsibleContent>
+                    </SidebarGroup>
+                </Collapsible>
+                {/* sub */}
+                <Collapsible defaultOpen className="group/collapsible">
+                    <SidebarGroup>
+                        <SidebarGroupLabel asChild>
+                            <CollapsibleTrigger>
+                                Sub Projects
+                                <ChevronDown className="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-180" />
+                            </CollapsibleTrigger>
+                        </SidebarGroupLabel>
+
+                        <CollapsibleContent>
+                            <SidebarMenu>
+                                <SidebarMenuItem>
+                                    <SidebarMenuButton asChild>
+                                        <Link href="/#">
+                                            <Projector />
+                                            All projects
+                                        </Link>
+                                    </SidebarMenuButton>
+                                    <SidebarMenuSub>
+                                        <SidebarMenuSubItem>
+                                            <SidebarMenuSubButton asChild>
+                                                <Link href="/#">Project 1</Link>
+                                            </SidebarMenuSubButton>
+                                        </SidebarMenuSubItem>
+                                    </SidebarMenuSub>{' '}
+                                    <SidebarMenuSub>
+                                        <SidebarMenuSubItem>
+                                            <SidebarMenuSubButton asChild>
+                                                <Link href="/#">Project 2</Link>
+                                            </SidebarMenuSubButton>
+                                        </SidebarMenuSubItem>
+                                    </SidebarMenuSub>
+                                </SidebarMenuItem>
+                            </SidebarMenu>
+                        </CollapsibleContent>
+                    </SidebarGroup>
+                </Collapsible>
             </SidebarContent>
+
             <SidebarSeparator className="inset-0 ml-0" />
             <SidebarFooter className="inset-0 rounded-md">
                 <SidebarMenu>
@@ -107,7 +226,7 @@ const AppSidebar = () => {
                                     <div className="grid flex-1 text-left text-sm leading-tight">
                                         <span className="truncate font-semibold">Khadon</span>
                                     </div>{' '}
-                                    <ChevronUp className="ml-auto" />
+                                    <ChevronsUpDown className="ml-auto" />
                                 </SidebarMenuButton>
                             </DropdownMenuTrigger>
                             <DropdownMenuContent align="end">

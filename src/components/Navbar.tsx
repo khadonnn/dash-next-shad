@@ -17,6 +17,7 @@ const Navbar = () => {
     return (
         <nav className="flex items-center justify-between p-4">
             {/* LEFT */}
+            {/* sidebar trigger */}
             <SidebarTrigger className="cursor-pointer" />
 
             {/* RIGHT */}
