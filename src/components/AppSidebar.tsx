@@ -84,7 +84,7 @@ const AppSidebar = () => {
                                     height={30}
                                     className="shink-0 h-8 w-auto rounded-full object-cover"
                                 />
-                                <span className="font-bold tracking-wider">Khadon</span>
+                                <span className="font-bold tracking-wider">KHADON</span>
                             </Link>
                         </SidebarMenuButton>
                     </SidebarMenuItem>
