@@ -16,6 +16,7 @@ import { Button } from '@/components/ui/button';
 import EditUser from '@/components/EditUser';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import AppLineChart from '@/components/AppLineChart';
+import ContributionChart from '@/components/ContributionChart';
 
 const SingleUserPage = () => {
     return (
@@ -167,6 +168,10 @@ const SingleUserPage = () => {
                     <div className="bg-primary-foreground rounded-lg p-4">
                         <h1 className="text-xl font-semibold">User Activity</h1>
                         <AppLineChart />
+                        <div className="mt-6">
+                            <h1 className="mb-6 text-xl font-semibold">User Contribution</h1>
+                            <ContributionChart />
+                        </div>
                     </div>
                 </div>
             </div>
