@@ -10,7 +10,7 @@ import {
 } from '@/components/ui/breadcrumb';
 import { HoverCard, HoverCardContent, HoverCardTrigger } from '@/components/ui/hover-card';
 import { Progress } from '@/components/ui/progress';
-import { BadgeCheck, Citrus, Medal, Settings, Shield } from 'lucide-react';
+import { BadgeCheck, Medal, Settings, Shield, Star } from 'lucide-react';
 import { Sheet, SheetTrigger } from '@/components/ui/sheet';
 import { Button } from '@/components/ui/button';
 import EditUser from '@/components/EditUser';
@@ -88,7 +88,7 @@ const SingleUserPage = () => {
                             </HoverCard>
                             <HoverCard>
                                 <HoverCardTrigger>
-                                    <Citrus
+                                    <Star
                                         size={36}
                                         className="rounded-full border-1 border-orange-500/50 bg-orange-500/30 p-2"
                                     />

@@ -15,7 +15,7 @@ import MyClock from '@/components/clock';
 
 const Navbar = () => {
     return (
-        <nav className="flex items-center justify-between p-4">
+        <nav className="bg-background sticky top-0 z-10 flex items-center justify-between p-4">
             {/* LEFT */}
             {/* sidebar trigger */}
             <div className="flex items-center justify-around gap-4">
