@@ -1,6 +1,6 @@
 'use client';
 
-import { ActivityCalendar } from 'react-activity-calendar';
+import { ActivityCalendar, ThemeInput } from 'react-activity-calendar';
 const data = [
     {
         count: 0,
@@ -1828,12 +1828,18 @@ const data = [
         level: 1,
     },
 ];
+
+const githubTheme: ThemeInput = {
+    light: ['#ebedf0', '#9be9a8', '#40c463', '#30a14e', '#216e39'],
+    dark: ['#161b22', '#0e4429', '#006d32', '#26a641', '#39d353'],
+};
+
 const ContributionChart = () => {
     return (
         <ActivityCalendar
             blockMargin={4}
             blockRadius={2}
-            blockSize={12}
+            blockSize={10}
             colorScheme="dark"
             data={data}
             fontSize={14}
@@ -1844,6 +1850,7 @@ const ContributionChart = () => {
             weekStart={0}
             showWeekdayLabels={true}
             style={{ paddingBottom: 20, marginBottom: 20 }}
+            theme={githubTheme}
         />
     );
 };

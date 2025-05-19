@@ -166,12 +166,12 @@ const SingleUserPage = () => {
                     </div>
                     {/* CHART CONTAINER */}
                     <div className="bg-primary-foreground rounded-lg p-4">
-                        <h1 className="text-xl font-semibold">User Activity</h1>
-                        <AppLineChart />
                         <div className="mt-6">
                             <h1 className="mb-6 text-xl font-semibold">User Contribution</h1>
                             <ContributionChart />
                         </div>
+                        <h1 className="text-xl font-semibold">User Activity</h1>
+                        <AppLineChart />
                     </div>
                 </div>
             </div>

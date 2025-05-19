@@ -1,4 +1,4 @@
 const UserPage = () => {
-    return <div>UserPage</div>;
+    return <div>Waiting for next update...</div>;
 };
 export default UserPage;
