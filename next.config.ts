@@ -1,12 +1,24 @@
 import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
-    /* config options here */
     devIndicators: {
         position: 'bottom-right', // ẩn icon build ở góc trái dưới
     },
     images: {
-        domains: ['images.unsplash.com', 'res.cloudinary.com', 'images.pexels.com'],
+        remotePatterns: [
+            {
+                protocol: 'https',
+                hostname: 'images.unsplash.com',
+            },
+            {
+                protocol: 'https',
+                hostname: 'res.cloudinary.com',
+            },
+            {
+                protocol: 'https',
+                hostname: 'images.pexels.com',
+            },
+        ],
     },
 };
 
