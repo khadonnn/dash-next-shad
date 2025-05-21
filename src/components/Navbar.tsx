@@ -11,7 +11,7 @@ import {
     DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { SidebarTrigger } from '@/components/ui/sidebar';
-import MyClock from '@/components/clock';
+import MyClock from '@/components/MyClock';
 
 const Navbar = () => {
     return (
